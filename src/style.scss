@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Slab');
+
+@mixin flexbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+$lightColor: #f4f4f4;
+$greenColor: #28a745;
+$redColor: #dc3545;
+$mainFont: 'Josefin Slab', serif;
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    background-color: #fff;
+    color: #333; 
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+ul {
+    list-style: none;
+  }
+  
+img {
+    width: 100%;
+}
+
+.container {
+    @include flexbox;
+    flex-direction: column;
+    max-width: 1100px;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 2rem;
+}
+
+.row-type {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 4rem;
+}
+
+.btn {
+    @include flexbox;
+    border: 1px solid rgba(237, 92, 10, 1);
+    border-radius: .7rem;
+    color: #333;
+    background-color: unset;
+    padding: .7rem;
+    font-size: .8rem;
+    cursor: pointer;
+    outline: none;
+    transition: .2s;
+}
+
+.btn:hover {
+    background-color: rgba(237, 92, 10, 1);
+    color: #f4f4f4;
+}
+
+.text-success {
+    color: $greenColor;
+}
+  
+.text-danger {
+    color: $redColor;
+}
+
+// ------ NAVBAR
+.navbar {
+    @include flexbox;
+    justify-content: space-between;
+    height: 4rem;
+    background-color: rgba(237, 92, 10, 1);
+    box-shadow: 0px 0px 15px rgba(50, 50, 50, .3);
+    .navbar-logo {
+        margin: 0 2rem;
+        color: #f4f4f4;
+        cursor: pointer;
+    }
+    .links-list {
+        margin: 0 1rem;
+        @include flexbox;
+        color: #f4f4f4; 
+        .navbar-link {
+            margin: 0 .5rem;
+            padding: .5rem;
+            border-radius: .7rem;
+        }
+    }
+}
+
+
+// ------ User Card
+.card {
+    @include flexbox;
+    flex-direction: column;
+    padding: 1rem;
+    border: 1px solid rgba(50, 50, 50, .1);
+    box-shadow: 0px 0px 30px rgba(50, 50, 50, .1);
+    border-radius: .7rem;
+    margin: 0.7rem 0;
+    transition: .2s;
+    .round-img {
+        border-radius: .8rem;
+        width: 13rem;
+      }
+    .card-login {
+        text-transform: uppercase;
+        padding: .5rem;
+        cursor: default;
+    }
+}
+
+.card:hover {
+    box-shadow: 0px 0px 50px rgba(50, 50, 50, .2);
+    transform: scale(1.1);
+}
+
+// ------ FORM
+.form-container {
+    @include flexbox;
+    flex-direction: column;
+    margin-top: 1rem;
+    .form {
+        @include flexbox;
+        flex-direction: column;
+        width: 20rem;
+        margin: auto;
+        input {
+            margin: .5rem 0;
+          }
+        input[type='text'],
+        input[type='email'],
+        input[type='password'],
+        input[type='date'],
+        select,
+        textarea {
+        display: block;
+        width: 100%;
+        padding: 0.4rem;
+        font-size: 1.2rem;
+        border: 1px solid #ccc;
+        }
+    }
+}
+
+// ------ ALERT
+.alert {
+    padding: 0.7rem;
+    margin: 1rem 0;
+    opacity: 0.9;
+    background: $lightColor;
+    color: #333;
+    .alert-light {
+        background: $lightColor;
+        color: #333;
+      }
+  }
+
+
+// ------ USER PAGE
+
+.back-btn {
+   position: absolute;
+   top: 5rem;
+   left: 2rem;
+   background-color: #008148;
+   border: none;
+   color: #f4f4f4;
+   text-transform: uppercase;  
+}
+
+.user-page {
+    @include flexbox;
+    margin-top: 3rem;
+    .user-info {
+        @include flexbox;
+        width: 100%;
+        .user-avatar {
+            @include flexbox;
+            flex-direction: column;
+            margin: 0rem 5rem;
+            .avatar-img {
+                border-radius: 50%;
+                width: 15rem;
+            }
+        }
+        .user-bio {
+            @include flexbox;
+            flex-direction: column;
+            margin: 0rem 5rem;
+            border: 1px solid rgba(237, 92, 10, .1);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            min-width: 20%;
+            box-shadow: 0px 0px 30px rgba(50, 50, 50, .1);
+            .biography {
+                font-size: 1.1rem;
+                padding: .5rem;
+                font-weight: 200;
+            }
+            .user-general-info {
+                padding: 1.5rem;
+            }
+            p {
+               font-weight: 600;
+               span {
+                   font-weight: 200;
+               } 
+            }
+            .badges-info {
+                @include flexbox;
+                width: 100%;
+                margin: 2rem 0;
+                justify-content: space-around;
+                .badge {
+                    font-size: .7rem;
+                    cursor: default;
+                    color: #f4f4f4;
+                    padding: .6rem;
+                    border-radius: .7rem;
+                    box-shadow: 0px 0px 30px rgba(50, 50, 50, .2);
+                }
+                .badge-red {
+                    background-color: #B80C09;
+                }
+                .badge-green {
+                    background-color: #008148;
+                }
+                .badge-blue {
+                    background-color: #003F91;
+                }
+                .badge-yellow {
+                    background-color: #F18F01;
+                }
+            }
+        }
+    }   
+}
+
+// ------ REPO ITEM
+.repos-container {
+    @include flexbox;
+    width: 70%;
+    margin: auto;
+    margin-top: 5rem;
+    justify-content: space-around;
+    .repo-card {
+        @include flexbox;
+        flex-direction: column;
+        .repo-icon {
+            font-size: 5rem;
+            transition: .3s;
+        }
+        .repo-icon:hover {
+            color: rgba(237, 92, 10, 1);
+        }
+    }
+}
+
